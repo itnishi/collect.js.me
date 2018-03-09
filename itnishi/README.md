@@ -2066,8 +2066,16 @@ zipped.all();
 //=> [['Chair', 100], ['Desk', 200]]
 ```
 
-#### ``itnishi``
-* where
+### ``itnishi``
+
+#### `Nishi Ltd Features`
+
+* [where](#and-where)
+   * [and where](#and-where)
+   * [case insensative](#case-insensative-where)
+   * [like where](#like-where)
+   * [like% where](#like-where-1)
+   * [%like where](#like%-where-2)
 * whereBetween
 * whereNotBetween
 * orWhere
