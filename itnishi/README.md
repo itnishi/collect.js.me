@@ -2318,7 +2318,8 @@ users: [
   {name: 'kamal', age: 80}
 ],
 
-var per_page = 3
+ var per_page = 3
+ 
  var total = collect(this.users).paginate(per_page);
 
 //=> 4 // that means 4 pages will be for this users
@@ -2329,7 +2330,7 @@ var page_lists = collect(this.users).pagelists(total)
 
 var per_page_datas = collect(this.users).forPage(1,per_page).all()
 
-//=> hints => forpage(currentPage,perPageData)
+//=> hints => forPage(currentPage,perPageData)
 
 //=> [
 //=>  {name: 'abul', age: 21},
