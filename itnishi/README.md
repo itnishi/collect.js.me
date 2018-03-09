@@ -141,7 +141,8 @@ users: [
 
 ```
 #### ``whereBetween``
-* whereBetween([key,[value1,value2])
+
+* `whereBetween([key,[value1,value2])`
 
 ```js
 users: [
@@ -168,7 +169,8 @@ collect(this.users).whereBetween('age', [30,60]).all();
 ```
 
 #### ``whereNotBetween``
-* whereNotBetween([key,[value1,value2])
+
+* `whereNotBetween([key,[value1,value2])`
 
 ```js
 users: [
@@ -195,8 +197,9 @@ collect(this.users).whereNotBetween('age', [30,90]).all();
 ```
 
 #### ``orWhere``
-* orWhere([[key,operator,value],[key,operator,value]])
-* orWhere([[],[],...])
+
+* `orWhere([[key,operator,value],[key,operator,value]])`
+* ` orWhere([[],[],...])`
 ```js
 users: [
   {name: 'abul', age: 21},
