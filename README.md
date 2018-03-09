@@ -1,4 +1,4 @@
-# collect.js.me
+# collect.js.me ``customised``
 JavaScript Collections ( laravel collections + query ) .
 
 

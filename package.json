@@ -1,6 +1,6 @@
 {
   "name": "collect.js.me",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "collections of array and objects customised by code4mk",
   "main": "dist/index.js",
   "typing": "index.d.ta",
