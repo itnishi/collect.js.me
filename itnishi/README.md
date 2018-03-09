@@ -7,6 +7,14 @@ or..
 yarn add collect.js.me
 ```
 
+### vue
+
+```js
+// globally
+window.collect = require('collect.js.me')
+//or locally
+import collect from 'collect.js.me'
+```
 
 
 
@@ -2084,7 +2092,7 @@ zipped.all();
 * [whereNotBetween](#wherenotbetween)
 * [orWhere](#orwhere)
 * [paginate](#paginate)
-* [paginate (pagelists)](#pagelists)
+* [paginate (pagelists)](#paginate)
 
 #### ``and where``
 
@@ -2289,6 +2297,44 @@ users: [
 
 //=> [
 //=>  { "name": "gan", "age": 70 }
+//=> ]
+
+```
+
+#### ``paginate``
+
+
+```js
+users: [
+  {name: 'abul', age: 21},
+  {name: 'baki', age: 22},
+  {name: 'canddy', age: 30.5},
+  {name: 'dam', age: 45},
+  {name: 'eat', age: 55},
+  {name: 'fun', age: 80},
+  {name: 'kamal', age: 123},
+  {name: 'gan', age: 70},
+  {name: 'hate', age: 71},
+  {name: 'kamal', age: 80}
+],
+
+var per_page = 3
+ var total = collect(this.users).paginate(per_page);
+
+//=> 4 // that means 4 pages will be for this users
+
+var page_lists = collect(this.users).pagelists(total)
+
+//=> [1,2,3,4]
+
+var per_page_datas = collect(this.users).forPage(1,per_page).all()
+
+//=> hints => forpage(currentPage,perPageData)
+
+//=> [
+//=>  {name: 'abul', age: 21},
+//=>  {name: 'baki', age: 22},
+//=>  {name: 'canddy', age: 30.5}
 //=> ]
 
 ```
