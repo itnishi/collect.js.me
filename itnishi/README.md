@@ -7,224 +7,13 @@ or..
 yarn add collect.js.me
 ```
 
-### Nishi IT Ltd feature
-* where
-* whereBetween
-* whereNotBetween
-* orWhere
-* paginate
-* paginate (pagelists)
 
-#### ``and where``
-
-
-```js
-users: [
-  {name: 'abul', age: 21},
-  {name: 'baki', age: 22},
-  {name: 'canddy', age: 30.5},
-  {name: 'dam', age: 45},
-  {name: 'eat', age: 55},
-  {name: 'fun', age: 80},
-  {name: 'kamal', age: 123},
-  {name: 'gan', age: 70},
-  {name: 'hate', age: 71},
-  {name: 'kamal', age: 80}
-],
-
- collect(this.users).where('name','kamal').where('age',123).all();
-
-//=> {name: 'kamal', age: 123}
-
-```
-
-#### ``case insensative where``
-
-* case insensative `==*`
-
-```js
-users: [
-  {name: 'abul', age: 21},
-  {name: 'baki', age: 22},
-  {name: 'canddy', age: 30.5},
-  {name: 'dam', age: 45},
-  {name: 'eat', age: 55},
-  {name: 'fun', age: 80},
-  {name: 'kamal', age: 123},
-  {name: 'gan', age: 70},
-  {name: 'hate', age: 71},
-  {name: 'kamal', age: 80}
-],
-
- collect(this.users).where('name','==*''KaMaL').all();
-
-//=> [
-//=>  {name: 'kamal', age: 123},
-//=>  {name: 'kamal', age: 80}
-//=> ]
-
-```
-
-#### ``Like where``
-
-```js
-users: [
-  {name: 'abul', age: 21},
-  {name: 'baki', age: 22},
-  {name: 'canddy', age: 30.5},
-  {name: 'dam', age: 45},
-  {name: 'eat', age: 55},
-  {name: 'fun', age: 80},
-  {name: 'kamal', age: 123},
-  {name: 'gan', age: 70},
-  {name: 'hate', age: 71},
-  {name: 'kamal', age: 80}
-],
-
- collect(this.users).where('name','like''e').all();
-
-//=> [
-//=>  { "name": "eat", "age": 55 },
-//=>  { "name": "hate", "age": 71 }
-//=> ]
-
-```
-
-#### ``  like% where``
-
-```js
-users: [
-  {name: 'abul', age: 21},
-  {name: 'baki', age: 22},
-  {name: 'canddy', age: 30.5},
-  {name: 'dam', age: 45},
-  {name: 'eat', age: 55},
-  {name: 'fun', age: 80},
-  {name: 'kamal', age: 123},
-  {name: 'gan', age: 70},
-  {name: 'hate', age: 71},
-  {name: 'kamal', age: 80}
-],
-
- collect(this.users).where('name','like%''k').all();
-
-//=> [
-//=>  {name: 'kamal', age: 123},
-//=>  {name: 'kamal', age: 80}
-//=> ]
-
-```
-
-#### ``  %like where``
-
-```js
-users: [
-  {name: 'abul', age: 21},
-  {name: 'baki', age: 22},
-  {name: 'canddy', age: 30.5},
-  {name: 'dam', age: 45},
-  {name: 'eat', age: 55},
-  {name: 'fun', age: 80},
-  {name: 'kamal', age: 123},
-  {name: 'gan', age: 70},
-  {name: 'hate', age: 71},
-  {name: 'kamal', age: 80}
-],
-
- collect(this.users).where('name','like%''l').all();
-
-//=> [
-//=>  {name: 'abul', age: 21},
-//=>  {name: 'kamal', age: 123},
-//=>  {name: 'kamal', age: 80}
-//=> ]
-
-```
-#### ``whereBetween``
-
-* `whereBetween([key,[value1,value2])`
-
-```js
-users: [
-  {name: 'abul', age: 21},
-  {name: 'baki', age: 22},
-  {name: 'canddy', age: 30.5},
-  {name: 'dam', age: 45},
-  {name: 'eat', age: 55},
-  {name: 'fun', age: 80},
-  {name: 'kamal', age: 123},
-  {name: 'gan', age: 70},
-  {name: 'hate', age: 71},
-  {name: 'kamal', age: 80}
-],
-
-collect(this.users).whereBetween('age', [30,60]).all();
-
-//=> [
-//=>  {name: 'canddy', age: 30.5},
-//=>  {name: 'dam', age: 45},
-//=>  {name: 'eat', age: 55}
-//=> ]
-
-```
-
-#### ``whereNotBetween``
-
-* `whereNotBetween([key,[value1,value2])`
-
-```js
-users: [
-  {name: 'abul', age: 21},
-  {name: 'baki', age: 22},
-  {name: 'canddy', age: 30.5},
-  {name: 'dam', age: 45},
-  {name: 'eat', age: 55},
-  {name: 'fun', age: 80},
-  {name: 'kamal', age: 123},
-  {name: 'gan', age: 70},
-  {name: 'hate', age: 71},
-  {name: 'kamal', age: 80}
-],
-
-collect(this.users).whereNotBetween('age', [30,90]).all();
-
-//=> [
-//=>  {name: 'abul', age: 21},
-//=>  {name: 'baki', age: 22},
-//=>  {name: 'kamal', age: 123}
-//=> ]
-
-```
-
-#### ``orWhere``
-
-* `orWhere([[key,operator,value],[key,operator,value]])`
-* ` orWhere([[],[],...])`
-```js
-users: [
-  {name: 'abul', age: 21},
-  {name: 'baki', age: 22},
-  {name: 'canddy', age: 30.5},
-  {name: 'dam', age: 45},
-  {name: 'eat', age: 55},
-  {name: 'fun', age: 80},
-  {name: 'kamal', age: 123},
-  {name: 'gan', age: 70},
-  {name: 'hate', age: 71},
-  {name: 'kamal', age: 80}
-],
-
- collect(this.users).orWhere([['name','==*','empty'],['age','==',70]]).all();
-
-//=> [
-//=>  { "name": "gan", "age": 70 }
-//=> ]
-
-```
 
 
 ### Tip
 Using Laravel as your backend? Collect.js offers an (almost) identical api to [Laravel Collections](https://laravel.com/docs/5.5/collections) 5.5. [See differences](#strictness-and-comparisons).
+
+- [Nishi IT Ltd Features](#itnishi)
 
 ### Usage
 All available methods
@@ -2275,6 +2064,221 @@ const zipped = collection.zip([100, 200]);
 zipped.all();
 
 //=> [['Chair', 100], ['Desk', 200]]
+```
+
+#### ``itnishi``
+* where
+* whereBetween
+* whereNotBetween
+* orWhere
+* paginate
+* paginate (pagelists)
+
+#### ``and where``
+
+
+```js
+users: [
+  {name: 'abul', age: 21},
+  {name: 'baki', age: 22},
+  {name: 'canddy', age: 30.5},
+  {name: 'dam', age: 45},
+  {name: 'eat', age: 55},
+  {name: 'fun', age: 80},
+  {name: 'kamal', age: 123},
+  {name: 'gan', age: 70},
+  {name: 'hate', age: 71},
+  {name: 'kamal', age: 80}
+],
+
+ collect(this.users).where('name','kamal').where('age',123).all();
+
+//=> {name: 'kamal', age: 123}
+
+```
+
+#### ``case insensative where``
+
+* case insensative `==*`
+
+```js
+users: [
+  {name: 'abul', age: 21},
+  {name: 'baki', age: 22},
+  {name: 'canddy', age: 30.5},
+  {name: 'dam', age: 45},
+  {name: 'eat', age: 55},
+  {name: 'fun', age: 80},
+  {name: 'kamal', age: 123},
+  {name: 'gan', age: 70},
+  {name: 'hate', age: 71},
+  {name: 'kamal', age: 80}
+],
+
+ collect(this.users).where('name','==*''KaMaL').all();
+
+//=> [
+//=>  {name: 'kamal', age: 123},
+//=>  {name: 'kamal', age: 80}
+//=> ]
+
+```
+
+#### ``Like where``
+
+```js
+users: [
+  {name: 'abul', age: 21},
+  {name: 'baki', age: 22},
+  {name: 'canddy', age: 30.5},
+  {name: 'dam', age: 45},
+  {name: 'eat', age: 55},
+  {name: 'fun', age: 80},
+  {name: 'kamal', age: 123},
+  {name: 'gan', age: 70},
+  {name: 'hate', age: 71},
+  {name: 'kamal', age: 80}
+],
+
+ collect(this.users).where('name','like''e').all();
+
+//=> [
+//=>  { "name": "eat", "age": 55 },
+//=>  { "name": "hate", "age": 71 }
+//=> ]
+
+```
+
+#### ``  like% where``
+
+```js
+users: [
+  {name: 'abul', age: 21},
+  {name: 'baki', age: 22},
+  {name: 'canddy', age: 30.5},
+  {name: 'dam', age: 45},
+  {name: 'eat', age: 55},
+  {name: 'fun', age: 80},
+  {name: 'kamal', age: 123},
+  {name: 'gan', age: 70},
+  {name: 'hate', age: 71},
+  {name: 'kamal', age: 80}
+],
+
+ collect(this.users).where('name','like%''k').all();
+
+//=> [
+//=>  {name: 'kamal', age: 123},
+//=>  {name: 'kamal', age: 80}
+//=> ]
+
+```
+
+#### ``  %like where``
+
+```js
+users: [
+  {name: 'abul', age: 21},
+  {name: 'baki', age: 22},
+  {name: 'canddy', age: 30.5},
+  {name: 'dam', age: 45},
+  {name: 'eat', age: 55},
+  {name: 'fun', age: 80},
+  {name: 'kamal', age: 123},
+  {name: 'gan', age: 70},
+  {name: 'hate', age: 71},
+  {name: 'kamal', age: 80}
+],
+
+ collect(this.users).where('name','like%''l').all();
+
+//=> [
+//=>  {name: 'abul', age: 21},
+//=>  {name: 'kamal', age: 123},
+//=>  {name: 'kamal', age: 80}
+//=> ]
+
+```
+#### ``whereBetween``
+
+* `whereBetween([key,[value1,value2])`
+
+```js
+users: [
+  {name: 'abul', age: 21},
+  {name: 'baki', age: 22},
+  {name: 'canddy', age: 30.5},
+  {name: 'dam', age: 45},
+  {name: 'eat', age: 55},
+  {name: 'fun', age: 80},
+  {name: 'kamal', age: 123},
+  {name: 'gan', age: 70},
+  {name: 'hate', age: 71},
+  {name: 'kamal', age: 80}
+],
+
+collect(this.users).whereBetween('age', [30,60]).all();
+
+//=> [
+//=>  {name: 'canddy', age: 30.5},
+//=>  {name: 'dam', age: 45},
+//=>  {name: 'eat', age: 55}
+//=> ]
+
+```
+
+#### ``whereNotBetween``
+
+* `whereNotBetween([key,[value1,value2])`
+
+```js
+users: [
+  {name: 'abul', age: 21},
+  {name: 'baki', age: 22},
+  {name: 'canddy', age: 30.5},
+  {name: 'dam', age: 45},
+  {name: 'eat', age: 55},
+  {name: 'fun', age: 80},
+  {name: 'kamal', age: 123},
+  {name: 'gan', age: 70},
+  {name: 'hate', age: 71},
+  {name: 'kamal', age: 80}
+],
+
+collect(this.users).whereNotBetween('age', [30,90]).all();
+
+//=> [
+//=>  {name: 'abul', age: 21},
+//=>  {name: 'baki', age: 22},
+//=>  {name: 'kamal', age: 123}
+//=> ]
+
+```
+
+#### ``orWhere``
+
+* `orWhere([[key,operator,value],[key,operator,value]])`
+* ` orWhere([[],[],...])`
+```js
+users: [
+  {name: 'abul', age: 21},
+  {name: 'baki', age: 22},
+  {name: 'canddy', age: 30.5},
+  {name: 'dam', age: 45},
+  {name: 'eat', age: 55},
+  {name: 'fun', age: 80},
+  {name: 'kamal', age: 123},
+  {name: 'gan', age: 70},
+  {name: 'hate', age: 71},
+  {name: 'kamal', age: 80}
+],
+
+ collect(this.users).orWhere([['name','==*','empty'],['age','==',70]]).all();
+
+//=> [
+//=>  { "name": "gan", "age": 70 }
+//=> ]
+
 ```
 
 # NB : Only [ Nishi IT Ltd ] purpose
