@@ -2210,7 +2210,7 @@ users: [
   {name: 'kamal', age: 80}
 ],
 
- collect(this.users).where('name','like%''l').all();
+ collect(this.users).where('name','%like''l').all();
 
 //=> [
 //=>  {name: 'abul', age: 21},
@@ -2319,7 +2319,7 @@ users: [
 ],
 
  var per_page = 3
- 
+
  var total = collect(this.users).paginate(per_page);
 
 //=> 4 // that means 4 pages will be for this users
