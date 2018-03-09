@@ -1,20 +1,11 @@
 {
   "name": "collect.js.me",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "collections of array and objects customised by code4mk",
   "main": "dist/index.js",
-  "typings": "index.d.ts",
+  "typing": "index.d.ta",
   "scripts": {
-    "pretest": "npm run transpile",
-    "test": "node_modules/.bin/mocha test/tests.js",
-    "transpile": "node_modules/babel-cli/bin/babel.js src --quiet --out-dir dist",
-    "bundle": "node_modules/.bin/webpack dist/index.js build/collect.js --output-library collect",
-    "uglify": "node_modules/.bin/uglifyjs build/collect.js --compress --mangle --output build/collect.min.js",
-    "build": "npm run transpile && npm run bundle && npm run uglify",
-    "eslint": "node_modules/.bin/eslint src/ test/",
-    "coverage": "node_modules/.bin/nyc mocha test/tests.js",
-    "reporter": "node_modules/.bin/nyc report --reporter=html",
-    "prepublishOnly": "npm run build"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "babel": {
     "presets": [
