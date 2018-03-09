@@ -2075,10 +2075,10 @@ zipped.all();
    * [case insensative](#case-insensative-where)
    * [like where](#like-where)
    * [like% where](#like-where-1)
-   * [%like where](#like%-where-2)
-* whereBetween
-* whereNotBetween
-* orWhere
+   * [%like where](#like-where-2)
+* [whereBetween](#wherebetween)
+* [whereNotBetween](#wherenotbetween)
+* [orWhere](#orwhere)
 * paginate
 * paginate (pagelists)
 
