@@ -14,6 +14,133 @@ yarn add collect.js.me
 * paginate
 * paginate (pagelists)
 
+#### ``and where``
+
+
+```js
+users: [
+  {name: 'abul', age: 21},
+  {name: 'baki', age: 22},
+  {name: 'canddy', age: 30.5},
+  {name: 'dam', age: 45},
+  {name: 'eat', age: 55},
+  {name: 'fun', age: 80},
+  {name: 'kamal', age: 123},
+  {name: 'gan', age: 70},
+  {name: 'hate', age: 71},
+  {name: 'kamal', age: 80}
+],
+
+ collect(this.users).where('name','kamal').where('age',123).all();
+
+//=> {name: 'kamal', age: 123}
+
+```
+
+#### ``case insensative where``
+
+* case insensative `==*`
+
+```js
+users: [
+  {name: 'abul', age: 21},
+  {name: 'baki', age: 22},
+  {name: 'canddy', age: 30.5},
+  {name: 'dam', age: 45},
+  {name: 'eat', age: 55},
+  {name: 'fun', age: 80},
+  {name: 'kamal', age: 123},
+  {name: 'gan', age: 70},
+  {name: 'hate', age: 71},
+  {name: 'kamal', age: 80}
+],
+
+ collect(this.users).where('name','==*''KaMaL').all();
+
+//=> [
+//=>  {name: 'kamal', age: 123},
+//=>  {name: 'kamal', age: 80}
+//=> ]
+
+```
+
+#### ``Like where``
+
+```js
+users: [
+  {name: 'abul', age: 21},
+  {name: 'baki', age: 22},
+  {name: 'canddy', age: 30.5},
+  {name: 'dam', age: 45},
+  {name: 'eat', age: 55},
+  {name: 'fun', age: 80},
+  {name: 'kamal', age: 123},
+  {name: 'gan', age: 70},
+  {name: 'hate', age: 71},
+  {name: 'kamal', age: 80}
+],
+
+ collect(this.users).where('name','like''e').all();
+
+//=> [
+//=>  { "name": "eat", "age": 55 },
+//=>  { "name": "hate", "age": 71 }
+//=> ]
+
+```
+
+#### ``  like% where``
+
+```js
+users: [
+  {name: 'abul', age: 21},
+  {name: 'baki', age: 22},
+  {name: 'canddy', age: 30.5},
+  {name: 'dam', age: 45},
+  {name: 'eat', age: 55},
+  {name: 'fun', age: 80},
+  {name: 'kamal', age: 123},
+  {name: 'gan', age: 70},
+  {name: 'hate', age: 71},
+  {name: 'kamal', age: 80}
+],
+
+ collect(this.users).where('name','like%''k').all();
+
+//=> [
+//=>  {name: 'kamal', age: 123},
+//=>  {name: 'kamal', age: 80}
+//=> ]
+
+```
+
+#### ``  %like where``
+
+```js
+users: [
+  {name: 'abul', age: 21},
+  {name: 'baki', age: 22},
+  {name: 'canddy', age: 30.5},
+  {name: 'dam', age: 45},
+  {name: 'eat', age: 55},
+  {name: 'fun', age: 80},
+  {name: 'kamal', age: 123},
+  {name: 'gan', age: 70},
+  {name: 'hate', age: 71},
+  {name: 'kamal', age: 80}
+],
+
+ collect(this.users).where('name','like%''l').all();
+
+//=> [
+//=>  {name: 'abul', age: 21},
+//=>  {name: 'kamal', age: 123},
+//=>  {name: 'kamal', age: 80}
+//=> ]
+
+```
+
+
 ### Tip
 Using Laravel as your backend? Collect.js offers an (almost) identical api to [Laravel Collections](https://laravel.com/docs/5.5/collections) 5.5. [See differences](#strictness-and-comparisons).
 
