@@ -13,9 +13,13 @@ yarn add collect.js.me
 ### Tip
 Using Laravel as your backend? Collect.js offers an (almost) identical api to [Laravel Collections](https://laravel.com/docs/5.5/collections) 5.5. [See differences](#strictness-and-comparisons).
 
-- [Nishi IT Ltd Features](#itnishi)
+
 
 ### Usage
+
+Nishi IT Ltd methods
+- [Nishi IT Ltd Features](#itnishi)
+
 All available methods
 - [all](#all)
 - [average](#average)
@@ -2079,8 +2083,8 @@ zipped.all();
 * [whereBetween](#wherebetween)
 * [whereNotBetween](#wherenotbetween)
 * [orWhere](#orwhere)
-* paginate
-* paginate (pagelists)
+* [paginate](#paginate)
+* [paginate (pagelists)](#pagelists)
 
 #### ``and where``
 
