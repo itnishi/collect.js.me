@@ -14,6 +14,8 @@ yarn add collect.js.me
 window.collect = require('collect.js.me')
 //or locally
 import collect from 'collect.js.me'
+// optional for itnishi
+global.collect = require('collect.js')
 ```
 
 
